@@ -1,11 +1,12 @@
 from random import *
 
 numero_aleatorio = randint(0, 100)
-tentativas = 1
+tentativas = 0
 continua_jogando = True
 
 while continua_jogando:
-    if tentativas <= 20:
+    if tentativas < 20:
+        tentativas += 1
         erro = True
         print('Tentativa %d' % tentativas)
         while erro:
@@ -18,7 +19,6 @@ while continua_jogando:
             except ValueError as err:
                 print('Insira somente números entre 0 e 100')
 
-        tentativas += 1
         if chutar_numero > numero_aleatorio:
             print('Errou. Tente um número menor.')
             continue
@@ -30,7 +30,7 @@ while continua_jogando:
     else:
         print('Limite de tentativas excedido. Voce perdeu!')
 
-    tentativas = 1
+    tentativas = 0
     jogar_novamente = ''
     numero_aleatorio = randint(0, 100)
     while jogar_novamente != 'n' and jogar_novamente != 's':
